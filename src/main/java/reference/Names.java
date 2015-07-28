@@ -1,0 +1,15 @@
+package reference;
+
+/**
+ * Created by Mathieu on 28/07/2015.
+ */
+public class Names {
+    public static final class Items {
+        public static final String GIFT_CARD = "giftCardItem";
+    }
+
+    public static final class Blocks {
+        public static final String GIFT_CARD = "giftCardBlock";
+    }
+
+}

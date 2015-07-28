@@ -1,0 +1,16 @@
+[
+{
+  "modid": "GiftCards",
+  "name": "GiftCards",
+  "description": "Celebrate festivities by giving out gift cards",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["MrKickkiller"],
+  "credits": "Idea: Loneztar  Code: MrKickkiller",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
