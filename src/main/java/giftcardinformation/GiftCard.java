@@ -1,9 +1,11 @@
 package giftcardinformation;
 
+import net.minecraft.tileentity.TileEntity;
+
 /**
  * Created by Mathieu on 28/07/2015.
  */
-public class GiftCard {
+public class GiftCard extends TileEntity {
 
     private Message message;
 
@@ -15,6 +17,9 @@ public class GiftCard {
     }
 
     public Message getMessage() {
+        if (message == null){
+            return new Message("");
+        }
         return message;
     }
 
@@ -25,6 +30,9 @@ public class GiftCard {
     }
 
     public Sender getSender() {
+        if (sender == null){
+            return new Sender(null);
+        }
         return sender;
     }
 
@@ -35,6 +43,9 @@ public class GiftCard {
     }
 
     public Receiver getReceiver() {
+        if (receiver == null){
+            return new Receiver(null);
+        }
         return receiver;
     }
 
@@ -43,4 +54,10 @@ public class GiftCard {
             this.receiver = receiver;
         }
     }
+
+    public boolean hasNulls(){
+        return message == null || sender == null || receiver == null;
+    }
+
+
 }

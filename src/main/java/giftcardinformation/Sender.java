@@ -11,4 +11,6 @@ public class Sender extends AbstractPlayer {
         super(player.getPersistentID());
         this.canEditMessage = true;
     }
+
+
 }
