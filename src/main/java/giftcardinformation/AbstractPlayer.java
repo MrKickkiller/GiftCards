@@ -13,13 +13,20 @@ public abstract class AbstractPlayer {
 
     protected boolean canEditMessage;
 
-    public AbstractPlayer(UUID player) {
+    public AbstractPlayer(String player, World world) {
         if (player != null) {
-            this.player = player;
+            EntityPlayer entityPlayer = AbstractPlayer.resolvePlayerFromString(world,player);
+            if (entityPlayer != null){
+                this.player = entityPlayer.getPersistentID();
+            }
         }
     }
 
     public static EntityPlayer resolvePlayerFromString(World world,String playerName){
         return world.getPlayerEntityByName(playerName);
+    }
+
+    public UUID getPlayer() {
+        return player;
     }
 }

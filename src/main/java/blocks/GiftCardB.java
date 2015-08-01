@@ -45,7 +45,7 @@ public class GiftCardB extends GiftCardBlock {
         EntityItem dropCard = new EntityItem(world,x,y,z,card);
 
 
-        System.out.println("Filled in " + giftCard.hasNulls());
+        System.out.println("HasNulls " + giftCard.hasNulls());
         System.out.println("giftCard = " + giftCard);
         if (giftCard != null && dropCard.getEntityData() != null && !giftCard.hasNulls()) {
             dropCard.getEntityData().setString("sender", giftCard.getSender().toString());
@@ -57,7 +57,7 @@ public class GiftCardB extends GiftCardBlock {
             dropCard.getEntityData().setString("message","Hi There");
             dropCard.getEntityData().setString("receiver","Testing");
         }
-        System.out.println(dropCard.getEntityData());
+        System.out.println("getEntityData : " + dropCard.getEntityData());
 
         world.spawnEntityInWorld(dropCard);
         world.setBlockToAir(x, y, z);
@@ -69,8 +69,12 @@ public class GiftCardB extends GiftCardBlock {
         if (giftCard == null) {
             giftCard = new GiftCard();
         }
-        giftCard.setSender(new Sender(AbstractPlayer.resolvePlayerFromString(world, item.getTagCompound().getString("sender"))));
-        giftCard.setReceiver(new Receiver(AbstractPlayer.resolvePlayerFromString(world, item.getTagCompound().getString("receiver"))));
+        giftCard.setSender(new Sender(item.getTagCompound().getString("sender"), world));
+        giftCard.setReceiver(new Receiver(item.getTagCompound().getString("receiver"),world));
         giftCard.setMessage(new Message(item.getTagCompound().getString("message")));
+    }
+
+    public GiftCard getGiftCard() {
+        return giftCard;
     }
 }

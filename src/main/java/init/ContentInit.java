@@ -2,6 +2,7 @@ package init;
 
 import blocks.GiftCardB;
 import cpw.mods.fml.common.registry.GameRegistry;
+import giftcardinformation.GiftCard;
 import items.GiftCardI;
 import reference.Names;
 import reference.References;
@@ -22,6 +23,7 @@ public class ContentInit {
     public void registerItems(){
         GameRegistry.registerItem(giftCardItem, Names.Items.GIFT_CARD);
         GameRegistry.registerBlock(giftCardBlock, Names.Blocks.GIFT_CARD);
+        GameRegistry.registerTileEntity(GiftCard.class, Names.TileEntities.GIFT_CARDTE);
     }
 
     public void init(){

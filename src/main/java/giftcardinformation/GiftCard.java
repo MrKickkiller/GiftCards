@@ -30,9 +30,6 @@ public class GiftCard extends TileEntity {
     }
 
     public Sender getSender() {
-        if (sender == null){
-            return new Sender(null);
-        }
         return sender;
     }
 
@@ -43,9 +40,6 @@ public class GiftCard extends TileEntity {
     }
 
     public Receiver getReceiver() {
-        if (receiver == null){
-            return new Receiver(null);
-        }
         return receiver;
     }
 
@@ -60,4 +54,8 @@ public class GiftCard extends TileEntity {
     }
 
 
+//    @Override
+//    public String toString() {
+//        return "{"+ sender.getPlayer() + ";" +  message.getMessage() + receiver.getPlayer() + "}";
+//    }
 }

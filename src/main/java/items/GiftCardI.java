@@ -17,19 +17,17 @@ public class GiftCardI extends GiftCardItem {
 
     private String name;
 
-    private GiftCard giftCard;
+
+
+
 
     public GiftCardI(String name) {
-        this(new GiftCard(),name);
-    }
-
-    public GiftCardI (GiftCard giftCard, String name){
         super();
         this.setUnlocalizedName(Names.Items.GIFT_CARD);
         this.setCreativeTab(creative.GiftCardsCreativeTab.GiftCards);
         this.name = name;
         this.setMaxStackSize(1);
-        this.giftCard = giftCard;
+
     }
 
     public boolean onItemUse(ItemStack item, EntityPlayer player, World world,
@@ -47,39 +45,25 @@ public class GiftCardI extends GiftCardItem {
         GiftCard giftCard = (GiftCard) blockContainer.createTileEntity(world, 0);
 
         NBTTagCompound tags = item.getTagCompound();
-        System.out.println(tags);
+        System.out.println("Tags : " + tags);
+        System.out.println("getTagCompound : " + item.getTagCompound());
 
         if (tags != null) {
-            giftCard.setSender(new Sender(
-                    AbstractPlayer.resolvePlayerFromString(world, tags.getString("sender"))));
-            giftCard.setReceiver(new Receiver(AbstractPlayer.resolvePlayerFromString(world, tags.getString("receiver"))));
-            giftCard.setMessage(new Message(tags.getString("message")+ "Test"));
-        }else {
+            giftCard.setSender(new Sender(tags.getString("sender"),world));
+            giftCard.setReceiver(new Receiver(tags.getString("receiver"),world));
+            giftCard.setMessage(new Message(tags.getString("message") + "Test"));
+        } else {
             item.setTagCompound(new NBTTagCompound());
-            item.getTagCompound().setString("sender","No-one");
+            item.getTagCompound().setString("sender", "");
+            item.getTagCompound().setString("message", "");
+            item.getTagCompound().setString("receiver", "");
         }
 
+        System.out.println("GiftCard Message : " + giftCard.getSender());
         ((GiftCardB) blockContainer).setGiftCard(giftCard);
+        System.out.println("getGiftCard : " + ((GiftCardB) blockContainer).getGiftCard());
         world.setBlock(posx, posy + 1, posz, blockContainer);
-        System.out.println("Removing");
         player.inventory.consumeInventoryItem(player.inventory.getCurrentItem().getItem());
         return true;
     }
-
-    @Override
-    public void onCreated(ItemStack itemStack, World world, EntityPlayer player) {
-        System.out.println("created");
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound();
-        nbtTagCompound.setString("sender", "");
-        nbtTagCompound.setString("message", "Hi There");
-        nbtTagCompound.setString("receiver", "");
-    }
-
-    public void setGiftCard(GiftCard giftCard) {
-        this.giftCard = giftCard;
-    }
-
-
-
 }
-

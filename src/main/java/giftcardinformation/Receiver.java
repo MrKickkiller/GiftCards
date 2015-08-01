@@ -1,14 +1,14 @@
 package giftcardinformation;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
 /**
  * Created by Mathieu on 28/07/2015.
  */
 public class Receiver extends AbstractPlayer {
 
-    public Receiver(EntityPlayer player) {
-        super(player.getPersistentID());
+    public Receiver(String player,World world) {
+        super(player,world);
         this.canEditMessage = false;
     }
 }

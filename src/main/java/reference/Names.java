@@ -12,4 +12,8 @@ public class Names {
         public static final String GIFT_CARD = "giftCardBlock";
     }
 
+    public static final class TileEntities{
+        public static final String GIFT_CARDTE = "giftCardTile";
+    }
+
 }
