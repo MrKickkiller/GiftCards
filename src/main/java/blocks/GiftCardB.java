@@ -17,15 +17,15 @@ public class GiftCardB extends GiftCardBlock {
 
     private String name;
 
-    private GiftCard giftCard;
+    private GiftCardTileEntity giftCardTileEntity;
 
     public GiftCardB(String name) {
-        this(new GiftCard(),name);
+        this(new GiftCardTileEntity(),name);
     }
 
-    public GiftCardB(GiftCard giftCard,String name){
-        super(Material.ground);
-        this.giftCard = giftCard;
+    public GiftCardB(GiftCardTileEntity giftCardTileEntity,String name){
+        super();
+        this.giftCardTileEntity = giftCardTileEntity;
         this.setBlockName(Names.Blocks.GIFT_CARD);
         this.setBlockTextureName(Names.Blocks.GIFT_CARD);
         this.setCreativeTab(creative.GiftCardsCreativeTab.GiftCards);
@@ -33,24 +33,24 @@ public class GiftCardB extends GiftCardBlock {
     }
 
 
-    public void setGiftCard(GiftCard giftCard) {
-        this.giftCard = giftCard;
+    public void setGiftCardTileEntity(GiftCardTileEntity giftCardTileEntity) {
+        this.giftCardTileEntity = giftCardTileEntity;
     }
 
 
-    @Override
-    public void onBlockHarvested(World world, int x, int y, int z, int p_149681_5_, EntityPlayer player) {
+    /*@Override
+    public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
         ItemStack card = new ItemStack(ContentInit.giftCardItem);
 
         EntityItem dropCard = new EntityItem(world,x,y,z,card);
 
 
-        System.out.println("HasNulls " + giftCard.hasNulls());
-        System.out.println("giftCard = " + giftCard);
-        if (giftCard != null && dropCard.getEntityData() != null && !giftCard.hasNulls()) {
-            dropCard.getEntityData().setString("sender", giftCard.getSender().toString());
-            dropCard.getEntityData().setString("message", giftCard.getMessage().getMessage());
-            dropCard.getEntityData().setString("receiver", giftCard.getReceiver().toString());
+        System.out.println("HasNulls " + giftCardTileEntity.hasNulls());
+        System.out.println("giftCard = " + giftCardTileEntity);
+        if (giftCardTileEntity != null && dropCard.getEntityData() != null && !giftCardTileEntity.hasNulls()) {
+            dropCard.getEntityData().setString("sender", giftCardTileEntity.getSender().toString());
+            dropCard.getEntityData().setString("message", giftCardTileEntity.getMessage().getMessage());
+            dropCard.getEntityData().setString("receiver", giftCardTileEntity.getReceiver().toString());
         }
         else {
             dropCard.getEntityData().setString("sender","Test");
@@ -66,15 +66,15 @@ public class GiftCardB extends GiftCardBlock {
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack item) {
         System.out.println("OnBlockPlacedBy");
-        if (giftCard == null) {
-            giftCard = new GiftCard();
+        if (giftCardTileEntity == null) {
+            giftCardTileEntity = new GiftCardTileEntity();
         }
-        giftCard.setSender(new Sender(item.getTagCompound().getString("sender"), world));
-        giftCard.setReceiver(new Receiver(item.getTagCompound().getString("receiver"),world));
-        giftCard.setMessage(new Message(item.getTagCompound().getString("message")));
+        giftCardTileEntity.setSender(new Sender(item.getTagCompound().getString("sender"), world));
+        giftCardTileEntity.setReceiver(new Receiver(item.getTagCompound().getString("receiver"),world));
+        giftCardTileEntity.setMessage(new Message(item.getTagCompound().getString("message")));
     }
 
-    public GiftCard getGiftCard() {
-        return giftCard;
-    }
+    public GiftCardTileEntity getGiftCardTileEntity() {
+        return giftCardTileEntity;
+    }*/
 }

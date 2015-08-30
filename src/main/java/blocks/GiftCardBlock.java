@@ -1,23 +1,28 @@
 package blocks;
 
-import giftcardinformation.GiftCard;
+import giftcardinformation.GiftCardTileEntity;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import reference.References;
 
+import java.util.List;
+
 /**
  * Created by Mathieu on 28/07/2015.
  */
-abstract class GiftCardBlock extends BlockContainer {
+public class GiftCardBlock extends BlockContainer {
 
-    protected GiftCardBlock(Material p_i45394_1_) {
-        super(p_i45394_1_);
+    protected GiftCardBlock() {
+        super(Material.ground);
     }
 
-    @Override
+
+	@Override
     public String getUnlocalizedName()
     {
         return String.format("block.%s%s", References.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
@@ -35,8 +40,10 @@ abstract class GiftCardBlock extends BlockContainer {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return new GiftCard();
+    public TileEntity createNewTileEntity(World world, int meta) {
+        return new GiftCardTileEntity();
     }
+
+
 
 }

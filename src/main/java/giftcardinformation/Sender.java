@@ -12,6 +12,10 @@ public class Sender extends AbstractPlayer {
         this.canEditMessage = true;
     }
 
+	@Override
+	protected String getSubtagName() {
+		return "senderTag";
+	}
 
 
 }

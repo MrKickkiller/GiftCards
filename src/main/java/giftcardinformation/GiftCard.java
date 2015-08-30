@@ -1,61 +1,30 @@
 package giftcardinformation;
 
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.nbt.NBTTagCompound;
+import utils.INBTSavable;
 
 /**
- * Created by Mathieu on 28/07/2015.
+ * Created by AEnterprise
  */
-public class GiftCard extends TileEntity {
+public class GiftCard implements INBTSavable {
+	public Message message;
+	public Sender sender;
+	public Receiver receiver;
 
-    private Message message;
+	public void writeToNBT(NBTTagCompound tag) {
+		NBTTagCompound subtag = new NBTTagCompound();
+		message.writeToNBT(subtag);
+		sender.writeToNBT(subtag);
+		receiver.writeToNBT(subtag);
+		tag.setTag("giftcardTag", subtag);
+	}
 
-    private Sender sender;
-    private Receiver receiver;
-
-    public GiftCard() {
-
-    }
-
-    public Message getMessage() {
-        if (message == null){
-            return new Message("");
-        }
-        return message;
-    }
-
-    public void setMessage(Message message) {
-        if (message != null && message.getLength() > 0) {
-            this.message = message;
-        }
-    }
-
-    public Sender getSender() {
-        return sender;
-    }
-
-    public void setSender(Sender sender) {
-        if (sender != null) {
-            this.sender = sender;
-        }
-    }
-
-    public Receiver getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(Receiver receiver) {
-        if (receiver != null) {
-            this.receiver = receiver;
-        }
-    }
-
-    public boolean hasNulls(){
-        return message == null || sender == null || receiver == null;
-    }
-
-
-//    @Override
-//    public String toString() {
-//        return "{"+ sender.getPlayer() + ";" +  message.getMessage() + receiver.getPlayer() + "}";
-//    }
+	public void loadFromNBT(NBTTagCompound tag) {
+		if (tag.hasKey("giftcardTag")) {
+			NBTTagCompound subtag = tag.getCompoundTag("giftcardTag");
+			message.loadFromNBT(subtag);
+			sender.loadFromNBT(subtag);
+			receiver.loadFromNBT(subtag);
+		}
+	}
 }
