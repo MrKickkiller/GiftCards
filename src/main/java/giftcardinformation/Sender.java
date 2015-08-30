@@ -7,11 +7,19 @@ import net.minecraft.world.World;
  */
 public class Sender extends AbstractPlayer {
 
-    public Sender(String player,World world) {
-        super(player,world);
-        this.canEditMessage = true;
-    }
+	public Sender() {
+		this.canEditMessage = true;
+	}
 
+	@Override
+	public void set(String player, World world) {
+		super.set(player, world);
+	}
+
+	@Override
+	protected String getSubtagName() {
+		return "senderTag";
+	}
 
 
 }

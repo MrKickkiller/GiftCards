@@ -1,9 +1,15 @@
 package blocks;
 
-import giftcardinformation.GiftCard;
+import creative.GiftCardsCreativeTab;
+import giftcardinformation.TileEntityGiftCard;
+import init.ContentInit;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import reference.References;
@@ -11,13 +17,15 @@ import reference.References;
 /**
  * Created by Mathieu on 28/07/2015.
  */
-abstract class GiftCardBlock extends BlockContainer {
+public class GiftCardBlock extends BlockContainer {
 
-    protected GiftCardBlock(Material p_i45394_1_) {
-        super(p_i45394_1_);
+    public GiftCardBlock() {
+        super(Material.ground);
+		setCreativeTab(GiftCardsCreativeTab.GiftCards);
     }
 
-    @Override
+
+	@Override
     public String getUnlocalizedName()
     {
         return String.format("block.%s%s", References.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
@@ -35,8 +43,31 @@ abstract class GiftCardBlock extends BlockContainer {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return new GiftCard();
+    public TileEntity createNewTileEntity(World world, int meta) {
+        return new TileEntityGiftCard();
     }
 
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLiving, ItemStack stack) {
+		if (stack.stackTagCompound == null)
+			return;
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
+		if (tileEntity instanceof TileEntityGiftCard) {
+			TileEntityGiftCard entity = (TileEntityGiftCard) tileEntity;
+			entity.loadCardFromNBT(stack.stackTagCompound);
+		}
+	}
+
+	@Override
+	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
+		ItemStack stack = new ItemStack(ContentInit.giftCardBlock);
+		stack.stackTagCompound = new NBTTagCompound();
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
+		if (tileEntity instanceof TileEntityGiftCard) {
+			((TileEntityGiftCard) tileEntity).saveCardToNBT(stack.stackTagCompound);
+		}
+		EntityItem dropCard = new EntityItem(world, x, y, z, stack);
+		world.spawnEntityInWorld(dropCard);
+		world.setBlockToAir(x, y, z);
+	}
 }

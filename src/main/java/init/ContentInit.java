@@ -1,29 +1,24 @@
 package init;
 
-import blocks.GiftCardB;
+import blocks.GiftCardBlock;
 import cpw.mods.fml.common.registry.GameRegistry;
-import giftcardinformation.GiftCard;
-import items.GiftCardI;
+import giftcardinformation.TileEntityGiftCard;
 import reference.Names;
-import reference.References;
 
 /**
  * Created by MrKickkiller on 27/07/2015.
  */
 public class ContentInit {
 
-    public static GiftCardI giftCardItem;
-    public static GiftCardB giftCardBlock;
+    public static GiftCardBlock giftCardBlock;
 
     public void instantiateItems(){
-        giftCardItem = new GiftCardI(References.GIFTCARD_NAME);
-        giftCardBlock = new GiftCardB(References.GIFTCARD_NAME);
+        giftCardBlock = new GiftCardBlock();
     }
 
     public void registerItems(){
-        GameRegistry.registerItem(giftCardItem, Names.Items.GIFT_CARD);
         GameRegistry.registerBlock(giftCardBlock, Names.Blocks.GIFT_CARD);
-        GameRegistry.registerTileEntity(GiftCard.class, Names.TileEntities.GIFT_CARDTE);
+        GameRegistry.registerTileEntity(TileEntityGiftCard.class, Names.TileEntities.GIFT_CARDTE);
     }
 
     public void init(){
