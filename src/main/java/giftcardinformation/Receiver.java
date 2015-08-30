@@ -11,9 +11,13 @@ import java.util.UUID;
  */
 public class Receiver extends AbstractPlayer {
 
-	public Receiver(String player,World world) {
-		super(player,world);
+	public Receiver() {
 		this.canEditMessage = false;
+	}
+
+	@Override
+	public void set(String player, World world) {
+		super.set(player, world);
 	}
 
 	@Override

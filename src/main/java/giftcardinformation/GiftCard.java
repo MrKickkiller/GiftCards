@@ -7,9 +7,9 @@ import utils.INBTSavable;
  * Created by AEnterprise
  */
 public class GiftCard implements INBTSavable {
-	public Message message;
-	public Sender sender;
-	public Receiver receiver;
+	public Message message = new Message("");
+	public Sender sender = new Sender();
+	public Receiver receiver = new Receiver();
 
 	public void writeToNBT(NBTTagCompound tag) {
 		NBTTagCompound subtag = new NBTTagCompound();

@@ -12,10 +12,9 @@ import java.util.UUID;
  */
 public abstract class AbstractPlayer implements INBTSavable {
     private UUID player;
-
     protected boolean canEditMessage;
 
-    public AbstractPlayer(String player, World world) {
+    public void set(String player, World world) {
         if (player != null) {
             EntityPlayer entityPlayer = AbstractPlayer.resolvePlayerFromString(world,player);
             if (entityPlayer != null){
@@ -34,6 +33,8 @@ public abstract class AbstractPlayer implements INBTSavable {
 
 	@Override
 	public void writeToNBT(NBTTagCompound tag) {
+		if (player == null)
+			return;
 		NBTTagCompound subtag = new NBTTagCompound();
 		subtag.setLong("UUID-most", player.getMostSignificantBits());
 		subtag.setLong("UUID-least", player.getLeastSignificantBits());

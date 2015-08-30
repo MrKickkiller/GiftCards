@@ -6,6 +6,9 @@ import init.ContentInit;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFlintAndSteel;
+import net.minecraft.item.ItemSaddle;
+import net.minecraft.item.ItemStack;
 
 
 /**
@@ -17,7 +20,7 @@ public class GiftCardsCreativeTab {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
-            Item iconItem = ContentInit.giftCardItem;
+            Item iconItem = new ItemStack(ContentInit.giftCardBlock).getItem();
             if (iconItem != null){
                 return iconItem;
             }else
