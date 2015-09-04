@@ -1,7 +1,7 @@
 package reference;
 
 /**
- * Created by Mathieu on 28/07/2015.
+ * Created by MrKickkiller on 28/07/2015.
  */
 public class Names {
     public static final class Items {

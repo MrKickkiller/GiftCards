@@ -4,7 +4,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import utils.INBTSavable;
 
 /**
- * Created by Mathieu on 28/07/2015.
+ * Created by MrKickkiller on 28/07/2015.
+ * The message in a GiftCard.
  */
 public class Message implements INBTSavable {
 

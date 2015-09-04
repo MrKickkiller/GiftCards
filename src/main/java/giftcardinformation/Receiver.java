@@ -1,13 +1,12 @@
 package giftcardinformation;
 
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import utils.INBTSavable;
-
-import java.util.UUID;
 
 /**
  * Created by Mathieu on 28/07/2015.
+ * Player that receives the giftcard.
+ * Will have special abilities concerning a GiftCard.
+ *
  */
 public class Receiver extends AbstractPlayer {
 

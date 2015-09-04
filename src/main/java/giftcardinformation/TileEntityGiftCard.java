@@ -4,7 +4,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- * Created by Mathieu on 28/07/2015.
+ * Created by MrKickkiller on 28/07/2015.
+ * The TileEntity that stores the data from a GiftCard.
+ * Used for carrying over data from block to item form.
  */
 public class TileEntityGiftCard extends TileEntity {
 	private GiftCard card = new GiftCard();
@@ -30,8 +32,4 @@ public class TileEntityGiftCard extends TileEntity {
 		card.writeToNBT(tag);
 	}
 
-	/*@Override
-	public String toString() {
-		return "{"+ sender.getPlayer() + ";" +  message.getMessage() + receiver.getPlayer() + "}";
-	}*/
 }

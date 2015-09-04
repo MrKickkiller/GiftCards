@@ -6,13 +6,12 @@ import init.ContentInit;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFlintAndSteel;
-import net.minecraft.item.ItemSaddle;
 import net.minecraft.item.ItemStack;
 
 
 /**
- * Created by Mathieu on 27/07/2015.
+ * Created by MrKickkiller on 27/07/2015.
+ *
  */
 public class GiftCardsCreativeTab {
 

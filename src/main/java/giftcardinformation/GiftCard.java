@@ -5,6 +5,7 @@ import utils.INBTSavable;
 
 /**
  * Created by AEnterprise
+ *
  */
 public class GiftCard implements INBTSavable {
 	public Message message = new Message("");

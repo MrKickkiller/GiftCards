@@ -9,6 +9,7 @@ import java.util.UUID;
 
 /**
  * Created by MrKickkiller on 28/07/2015.
+ * Upper class that represents any Player.
  */
 public abstract class AbstractPlayer implements INBTSavable {
     private UUID player;
@@ -23,6 +24,11 @@ public abstract class AbstractPlayer implements INBTSavable {
         }
     }
 
+
+	/*
+	* Get the player from a simple string.
+	* Will be used to identify the player you wanna send something to.
+	 */
     public static EntityPlayer resolvePlayerFromString(World world,String playerName){
         return world.getPlayerEntityByName(playerName);
     }
