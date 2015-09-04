@@ -7,6 +7,7 @@ import reference.Names;
 
 /**
  * Created by MrKickkiller on 27/07/2015.
+ * Initialise all content in the mod.
  */
 public class ContentInit {
 
@@ -17,7 +18,7 @@ public class ContentInit {
     }
 
     public void registerItems(){
-        GameRegistry.registerBlock(giftCardBlock, Names.Blocks.GIFT_CARD);
+        GameRegistry.registerBlock(giftCardBlock, Names.Blocks.GIFT_CARD).setBlockName(Names.Blocks.GIFT_CARD);
         GameRegistry.registerTileEntity(TileEntityGiftCard.class, Names.TileEntities.GIFT_CARDTE);
     }
 
