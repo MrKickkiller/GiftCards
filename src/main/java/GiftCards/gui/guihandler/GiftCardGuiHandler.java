@@ -9,7 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 /**
- * Created by Mathieu on 7/09/2015.
+ * Created by MrKickkiller on 7/09/2015.
  */
 public class GiftCardGuiHandler implements IGuiHandler {
     @Override

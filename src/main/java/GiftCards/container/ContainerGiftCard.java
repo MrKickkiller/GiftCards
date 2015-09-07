@@ -6,7 +6,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- * Created by Mathieu on 7/09/2015.
+ * Created by MrKickkiller on 7/09/2015.
  */
 public class ContainerGiftCard extends Container {
     protected TileEntityGiftCard tileEntity;

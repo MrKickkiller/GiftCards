@@ -4,9 +4,10 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 
 /**
- * Created by Mathieu on 7/09/2015.
+ * Created by MrKickkiller on 7/09/2015.
  */
 public class GuiGiftCard extends GuiContainer {
+
     public static final int GUI_ID = 20;
 
     public GuiGiftCard(Container container) {
