@@ -1,4 +1,4 @@
-# GiftCards.GiftCards
+# GiftCards
 A small mod that adds giftcards to the game  
 Still in active development. (Kinda like every mod, not?)
 
