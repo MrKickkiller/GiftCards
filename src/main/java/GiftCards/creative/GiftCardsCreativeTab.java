@@ -1,8 +1,8 @@
-package creative;
+package GiftCards.creative;
 
+import GiftCards.init.ContentInit;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import init.ContentInit;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

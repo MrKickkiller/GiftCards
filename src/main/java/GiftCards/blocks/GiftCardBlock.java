@@ -1,8 +1,10 @@
-package blocks;
+package GiftCards.blocks;
 
-import creative.GiftCardsCreativeTab;
-import giftcardinformation.TileEntityGiftCard;
-import init.ContentInit;
+import GiftCards.GiftCards;
+import GiftCards.creative.GiftCardsCreativeTab;
+import GiftCards.giftcardinformation.TileEntityGiftCard;
+import GiftCards.init.ContentInit;
+import GiftCards.reference.References;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,7 +15,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import reference.References;
 
 /**
  * Created by MrKickkiller on 28/07/2015.
@@ -26,13 +27,11 @@ public class GiftCardBlock extends BlockContainer {
 		setCreativeTab(GiftCardsCreativeTab.GiftCards);
     }
 
-
     @Override
     public String getUnlocalizedName()
     {
         return String.format("block.%s%s", References.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
-
 
     public String getUnlocalizedName(ItemStack itemStack)
     {
@@ -73,6 +72,12 @@ public class GiftCardBlock extends BlockContainer {
 		world.setBlockToAir(x, y, z);
 	}
 
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int u, float r, float q, float t) {
+        System.out.println("Click registered");
+        player.openGui(GiftCards.instance, 20, world, x, y, z);
+        return true;
+    }
 
     //This will tell minecraft not to render any side of our cube.
     public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int i, int j, int k, int l)

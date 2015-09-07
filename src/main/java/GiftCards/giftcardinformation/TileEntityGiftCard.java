@@ -1,4 +1,4 @@
-package giftcardinformation;
+package GiftCards.giftcardinformation;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -10,7 +10,6 @@ import net.minecraft.tileentity.TileEntity;
  */
 public class TileEntityGiftCard extends TileEntity {
 	private GiftCard card = new GiftCard();
-
 
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {

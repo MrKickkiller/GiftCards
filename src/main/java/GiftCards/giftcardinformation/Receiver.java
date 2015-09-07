@@ -1,4 +1,4 @@
-package giftcardinformation;
+package GiftCards.giftcardinformation;
 
 import net.minecraft.world.World;
 

@@ -1,4 +1,4 @@
-package reference;
+package GiftCards.reference;
 
 /**
  * Created by MrKickkiller on 28/07/2015.

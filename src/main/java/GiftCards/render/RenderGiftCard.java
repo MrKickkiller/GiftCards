@@ -1,4 +1,4 @@
-package render;
+package GiftCards.render;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

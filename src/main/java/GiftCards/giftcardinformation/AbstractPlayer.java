@@ -1,9 +1,9 @@
-package giftcardinformation;
+package GiftCards.giftcardinformation;
 
+import GiftCards.utils.INBTSavable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import utils.INBTSavable;
 
 import java.util.UUID;
 
@@ -12,8 +12,16 @@ import java.util.UUID;
  * Upper class that represents any Player.
  */
 public abstract class AbstractPlayer implements INBTSavable {
-    private UUID player;
     protected boolean canEditMessage;
+	private UUID player;
+
+	/*
+	* Get the player from a simple string.
+	* Will be used to identify the player you wanna send something to.
+	 */
+	public static EntityPlayer resolvePlayerFromString(World world, String playerName) {
+		return world.getPlayerEntityByName(playerName);
+	}
 
     public void set(String player, World world) {
         if (player != null) {
@@ -22,15 +30,6 @@ public abstract class AbstractPlayer implements INBTSavable {
                 this.player = entityPlayer.getPersistentID();
             }
         }
-    }
-
-
-	/*
-	* Get the player from a simple string.
-	* Will be used to identify the player you wanna send something to.
-	 */
-    public static EntityPlayer resolvePlayerFromString(World world,String playerName){
-        return world.getPlayerEntityByName(playerName);
     }
 
     public UUID getPlayer() {

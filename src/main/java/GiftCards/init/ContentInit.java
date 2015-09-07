@@ -1,9 +1,9 @@
-package init;
+package GiftCards.init;
 
-import blocks.GiftCardBlock;
+import GiftCards.blocks.GiftCardBlock;
+import GiftCards.giftcardinformation.TileEntityGiftCard;
+import GiftCards.reference.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
-import giftcardinformation.TileEntityGiftCard;
-import reference.Names;
 
 /**
  * Created by MrKickkiller on 27/07/2015.

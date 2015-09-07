@@ -1,7 +1,7 @@
-package giftcardinformation;
+package GiftCards.giftcardinformation;
 
+import GiftCards.utils.INBTSavable;
 import net.minecraft.nbt.NBTTagCompound;
-import utils.INBTSavable;
 
 /**
  * Created by AEnterprise

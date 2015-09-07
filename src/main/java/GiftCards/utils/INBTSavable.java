@@ -1,4 +1,4 @@
-package utils;
+package GiftCards.utils;
 
 import net.minecraft.nbt.NBTTagCompound;
 

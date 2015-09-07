@@ -1,11 +1,11 @@
-package proxy;
+package GiftCards.proxy;
 
+import GiftCards.giftcardinformation.TileEntityGiftCard;
+import GiftCards.render.RenderGiftCard;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import giftcardinformation.TileEntityGiftCard;
-import render.RenderGiftCard;
 
 /**
  * Created by MrKickkiller on 30/08/2015.
